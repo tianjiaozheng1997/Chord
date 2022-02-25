@@ -68,7 +68,7 @@ DBboostTrain<-function(mattest,mfinal,method="gbm"){
     require(gbm)
     str(mattest)
     mattest$true<-as.factor(mattest$true)
-    DBboost <- gbm(true~.,distribution = 'gaussian',data=mattest,n.trees=1000,shrinkage = 0.01,cv.folds = 5)
+    DBboost <- gbm(true~.,distribution = 'gaussian',data=mattest,n.trees=1000,shrinkage = 0.01,cv.folds = 5,n.cores=1)
     return(DBboost)
   }
 }
